@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import { Card, createPokemonCards } from "./card";
 import ScoreBoard from "./scoreboard";
-import Game from "../data/game-data";
+// import Game from "../data/game-data";
 
 //initialize a new Game
-export let game = new Game();
+// let game = new Game();
 
 export default function CardGrid() {
     const [cards, setCards] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [gameStatus, setGameStatus] = useState(game);
+    const [score, setScore] = useState({current:0, high: 0})
+    // const [gameStatus, setGameStatus] = useState(game);
     // const [clicked, setClicked] = useState(false);
 
     useEffect(() => {
@@ -33,11 +34,6 @@ export default function CardGrid() {
     if (loading) {
         return <div className="container">Loading cards...</div>;
     }
-
-    // useEffect(() => {
-        
-    //     console.log('cards are shuffled')
-    // }, [cards])
 
     function handleClick (pokemonName) {
         console.log(`${pokemonName} is clicked`);
@@ -72,12 +68,20 @@ export default function CardGrid() {
     }
 
     // useEffect(() => {
+    //     const highScore = currentScore;
+    //     //ca
+    //     const currentScore = cards.reduce((total, card) => {
+    //         return total = total + card.clickCount;
+    //     }, 0)
 
-    // }, [game.currentScore])
+
+    // }, [score])
 
     return (
         <>
-        <ScoreBoard />
+        <ScoreBoard 
+        scoreCard={score}
+        />
             <div className="container">
             {cards.map((card, index) => (
                 <Card 
@@ -87,19 +91,24 @@ export default function CardGrid() {
                     onClick={() => {
                         handleClick(card.desc);
                         if (card.clickCount < 1){
-                            card.clickCount++;
-                            setGameStatus()
-                            game.addPoint();
+                            const updatedCards = cards.map(c => 
+                                c.desc === card.desc ? {...c, clickCount: c.clickCount + 1 } : c
+                            )
+                            setCards(updatedCards);
+                            // card.clickCount++;
+                            setScore(prevScore => ({...prevScore, current: prevScore.current + 1}))
                         }else{
                             resetAllClickCount();
-                            card.clickCount = 1;
-                            game.resetScore();
-                            // game.addPoint();
+                            setScore(prevScore => {
+                                const newHigh = prevScore.current > prevScore.high ? prevScore.current : prevScore.high;
+                                return {current: 0, high: newHigh}
+                            })
+                            // card.clickCount = 1;
                         }
                         
                         console.log(cards)
-                        console.log(`current score is ${game.currentScore}`)
-                        console.log(`highest score is ${game.highScore}`)
+                        console.log(`current score is ${score.current}`)
+                        console.log(`highest score is ${score.high}`)
                     }}
                 />
             ))}</div>
