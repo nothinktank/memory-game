@@ -107,8 +107,8 @@ export default function CardGrid() {
                         }
                         
                         console.log(cards)
-                        console.log(`current score is ${score.current}`)
-                        console.log(`highest score is ${score.high}`)
+                        // console.log(`current score is ${score.current}`)
+                        // console.log(`highest score is ${score.high}`)
                     }}
                 />
             ))}</div>
