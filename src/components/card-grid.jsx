@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import { Card, createPokemonCards } from "./card";
+import ScoreBoard from "./scoreboard";
 import Game from "../data/game-data";
 
 //initialize a new Game
-let game = new Game();
+export let game = new Game();
 
 export default function CardGrid() {
     const [cards, setCards] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [gameStatus, setGameStatus] = useState(game);
     // const [clicked, setClicked] = useState(false);
 
     useEffect(() => {
@@ -75,6 +77,7 @@ export default function CardGrid() {
 
     return (
         <>
+        <ScoreBoard />
             <div className="container">
             {cards.map((card, index) => (
                 <Card 
@@ -85,6 +88,7 @@ export default function CardGrid() {
                         handleClick(card.desc);
                         if (card.clickCount < 1){
                             card.clickCount++;
+                            setGameStatus()
                             game.addPoint();
                         }else{
                             resetAllClickCount();
