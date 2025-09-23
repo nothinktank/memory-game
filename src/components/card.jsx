@@ -5,8 +5,8 @@ export function Card ({imgLink, desc, onClick}) {
     return (
         <>
         <div className="card" onClick={onClick}>
-            <div className="image"><img src={imgLink} alt="" /></div>
-            <div className="description">{desc}</div>
+            <img src={imgLink} alt="" />
+            <p className="description">{desc}</p>
         </div>
         </>
     )
