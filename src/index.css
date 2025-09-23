@@ -62,7 +62,7 @@ button:focus-visible {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px;
-  /* width: 2vw; */
+  width: 30vw;
   margin: 0.7vw;
   padding: 0;
 
@@ -97,7 +97,7 @@ image{
 
 .title h1 span {
   margin-top: 0.1vh;
-    font-size: 4vw; 
+    font-size: 2vw; 
     color:#444; 
     word-spacing:1vw; 
     font-weight:normal; 
@@ -107,8 +107,8 @@ image{
 
     display: grid;
     grid-template-columns: 1fr max-content 1fr;
-    grid-template-rows: 2vh 0;
-    grid-gap: 2vw;
+    grid-template-rows: 1vh 0;
+    grid-gap: 1vw;
     align-items: center;
 }
 
