@@ -1,5 +1,5 @@
 export default class Game {
-    constructor(){
+    constructor(onStateChange){
         this.currentScore = 0;
         this.highScore = 0;
     }
