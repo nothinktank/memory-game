@@ -11,6 +11,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --gradient-2: linear-gradient(#a994f3, #3f3779);
 }
 
 a {
@@ -31,6 +33,7 @@ body {
 
 h1 {
   margin-bottom: auto;
+  
 }
 
 button {
@@ -77,13 +80,13 @@ div .card {
 .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   
 }
 
 p.description {
   margin: 0;
-  font-size: clamp(0.5rem, 2vw, 3rem ) ;
+  font-size: clamp(0.5rem, 2vw, 3rem );
   /* text-size-adjust: auto; */
   color: darkblue;
 }
@@ -126,7 +129,7 @@ p.description {
   background-color:#f8f8f8;
 }
 
-.score{
+.score h1{
   font-size:smaller;
 }
 
@@ -168,3 +171,70 @@ p.description {
 
   
 }
+
+
+/* scoreboard style */
+.horizontal-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px 30px;
+  margin-bottom: 0;
+}
+
+.final-score {
+  margin: 0;
+  margin-top: 1rem;
+  margin-bottom: -.4rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.white-text {
+  color: white;
+}
+
+.light-grey-text {
+  font-size: 0.8rem;
+  margin: 0;
+  margin-bottom: 1.2rem;
+  color: #ddd;
+  
+}
+
+.gradient-2 {
+  background: var(--gradient-2);
+}
+
+
+.final-score-wrapper {
+  flex-basis: 100%;
+
+  padding-block: 1em;
+
+  align-self: center;
+
+  clip-path: circle(1.8rem);
+  
+  padding: 0;
+}
+
+.high-score-wrapper {
+  flex-basis: 100%;
+
+  padding-block: 1em;
+
+  align-self: center;
+
+  clip-path: circle(2.5rem);
+  
+  padding: 0;
+}
+
+.gold-text {
+  color: gold;
+  font-size: 2.2rem;
+  margin-top: 0.2rem;
+  margin-bottom: -.6rem;
+}
+
