@@ -18,7 +18,7 @@ export default function ScoreBoard ({scoreCard}) {
             
             
             <div className="pill">
-                <p class="final-score white-text">{scoreCard.current} / 12 Hits</p>
+                <p className="final-score white-text">{scoreCard.current} / 12 Hits</p>
                 <div className="flexible-bar-case"></div>
                 <ProgressBar 
                     score={scoreCard.current}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Card, createPokemonCards } from "./card";
+import { Card, createPokemonCards, fetchPokeball } from "./card";
 import ScoreBoard from "./scoreboard";
 // import Game from "../data/game-data";
 
@@ -87,6 +87,7 @@ export default function CardGrid() {
                 <Card 
                     key={index}
                     imgLink={card.img}
+                    iconLink={card.icon}
                     desc={card.desc}
                     onClick={() => {
                         handleClick(card.desc);

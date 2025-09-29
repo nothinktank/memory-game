@@ -3,6 +3,8 @@
   line-height: 1.5;
   font-weight: 400;
 
+  margin: 0;
+
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -30,6 +32,10 @@ body {
   place-items: center;
   
 }
+/* 
+.title{
+  margin-top: -10;
+} */
 
 h1 {
   margin-bottom: auto;
@@ -70,12 +76,21 @@ button:focus-visible {
 div .card {
   padding: 10px;
 }
-
+/* image section */
 .card img {
   height: 80%;
   width: 100%;
   object-fit: contain;
 }
+
+.description img {
+  height: 1.5lh;
+  width: 1.5lh;
+
+  /* height: 1lh;
+  width: 1lh; */
+}
+
 
 .container {
   display: flex;
@@ -85,10 +100,14 @@ div .card {
 }
 
 p.description {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   font-size: clamp(0.5rem, 2vw, 3rem );
   /* text-size-adjust: auto; */
   color: darkblue;
+  
 }
 
 
@@ -101,6 +120,8 @@ p.description {
   color:#222; 
   letter-spacing: 0.1rem;
   font-family:"Playfair Display", serif; font-weight:400;
+
+  margin: 0;
 }
 
 .title h1 span {
@@ -223,12 +244,8 @@ p.description {
   bottom: calc(16px + env(safe-area-inset-bottom));
   z-index: 1000;
 
-  opacity: 0.8;
+  /* opacity: 0.8; */
 
-  /* position: fixed;
-  right: 16px;
-  bottom: calc(16px + env(safe-area-inset-bottom));
-  z-index: 1000; */
 }
 
 .final-score {
